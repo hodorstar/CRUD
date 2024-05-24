@@ -23,12 +23,13 @@ public class Purchase {
     @Override
     public String toString() {
         return "Purchase{" +
-                "\nid=" + id +
-                ",\n buyerId=" + buyer +
-                ",\n sellerId=" + seller +
-                ",\n name=" + name +
-                ",\n date=" + date +
-                "}\n";
+                "id=" + id +
+                ", buyerId=" + buyer +
+                ", sellerId=" + seller +
+                ", typeId=" + type +
+                ", name=" + name +
+                ", date=" + date +
+                "}";
     }
 
 }
