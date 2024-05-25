@@ -1,6 +1,7 @@
-package crud.app;
+package crud;
 
 import crud.actions.PurchaseCrudService;
+import crud.app.App;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,16 +1,32 @@
 package crud.models;
 
+import jakarta.persistence.*;
+
+//import javax.persistence.Entity;
+//import javax.persistence.Id;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
 import java.sql.Timestamp;
-import java.util.Objects;
 
+
+@Entity
 public class Purchase {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "buyer")
     private Long buyer;
+    @Column(name = "seller")
     private Long seller;
-
+    @Column(name = "type")
     private Long type;
+    @Column(name = "name")
     private String name;
+    @Column(name = "date")
     private Timestamp date;
+
+    public Purchase() {
+    }
 
     public Purchase(Long id, Long buyer, Long seller, Long type,  String name, Timestamp date) {
         this.id = id;
@@ -21,6 +37,13 @@ public class Purchase {
         this.date = date;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDate(Timestamp date) {
+        this.date = date;
+    }
 
     @Override
     public String toString() {
