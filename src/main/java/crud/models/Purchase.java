@@ -45,6 +45,30 @@ public class Purchase {
         this.date = date;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public Long getBuyer() {
+        return buyer;
+    }
+
+    public Long getSeller() {
+        return seller;
+    }
+
+    public Long getType() {
+        return type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Timestamp getDate() {
+        return date;
+    }
+
     @Override
     public String toString() {
         return "Purchase{" +
