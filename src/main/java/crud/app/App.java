@@ -1,4 +1,4 @@
-package crud.add;
+package crud.app;
 
 import crud.actions.PurchaseCrudService;
 import crud.models.Purchase;
@@ -10,8 +10,9 @@ public class App {
     private Scanner scanner;
     private PurchaseCrudService service;
 
-    public App(Scanner scanner) {
+    public App(Scanner scanner, PurchaseCrudService service) {
         this.scanner = scanner;
+        this.service = service;
     }
 
     void showMenu(){
@@ -21,13 +22,13 @@ public class App {
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    create();
+//                    create();
                     break;
                 case 2:
                     read();
                     break;
                 case 3:
-                    update();
+//                    update();
                     break;
                 case 4:
                     delete();
@@ -42,10 +43,10 @@ public class App {
 
     }
 
-    private  void create(){
-        System.out.println("Введите Id");
-        service.createPurchase();
-    }
+//    private  void create(){
+//        System.out.println("Введите Id");
+//        service.createPurchase();
+//    }
     private  void read(){
         System.out.println("[1] find all");
         System.out.println("[2]find by id");
@@ -63,7 +64,7 @@ public class App {
         }
 
     }
-    private  void update(){}
+//    private  void update(){}
     private  void delete(){
         System.out.println("id");
         long id = scanner.nextLong();

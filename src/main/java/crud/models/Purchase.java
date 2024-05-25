@@ -1,6 +1,7 @@
 package crud.models;
 
 import java.sql.Timestamp;
+import java.util.Objects;
 
 public class Purchase {
     private Long id;
@@ -19,6 +20,7 @@ public class Purchase {
         this.name = name;
         this.date = date;
     }
+
 
     @Override
     public String toString() {
