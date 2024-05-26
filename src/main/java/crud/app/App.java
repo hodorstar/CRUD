@@ -20,25 +20,31 @@ public class App {
         boolean running = true;
         while (running) {
             System.out.println("Choose CRUD operations: [1] Create, [2] Read, [3] Update, [4] Delete, [5] Exit");
-            int choice = scanner.nextInt();
-            switch (choice) {
-                case 1:
-                    create();
-                    break;
-                case 2:
-                    read();
-                    break;
-                case 3:
-                    update();
-                    break;
-                case 4:
-                    delete();
-                    break;
-                case 5:
-                    running = false;
-                    break;
-                default:
-                    System.out.println("Invalid choice");
+            if (scanner.hasNextInt()) {
+                int choice = scanner.nextInt();
+
+                switch (choice) {
+                    case 1:
+                        create();
+                        break;
+                    case 2:
+                        read();
+                        break;
+                    case 3:
+                        update();
+                        break;
+                    case 4:
+                        delete();
+                        break;
+                    case 5:
+                        running = false;
+                        break;
+                    default:
+                        System.out.println("Invalid choice");
+                }
+            } else {
+                System.out.println("Invalid choice");
+                scanner.next();
             }
         }
 
@@ -96,7 +102,6 @@ public class App {
     private void delete() {
         Long id = safeNextLong("Enter purchase id to delete:");
         Purchase purchase = service.getPurchaseById(id);
-
         if (purchase != null) {
             service.deletePurchase(purchase);
             System.out.println(purchase + " is deleted successfully");

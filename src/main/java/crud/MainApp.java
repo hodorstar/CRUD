@@ -18,7 +18,7 @@ public class MainApp {
 
     @Bean
     public CommandLineRunner demo(PurchaseCrudService service) {
-        return (args) -> {
+        return args -> {
             Scanner scanner = new Scanner(System.in);
             App menu = new App(scanner, service);
             menu.showMenu();

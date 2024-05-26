@@ -1,5 +1,5 @@
  drop table if exists purchase cascade;
-CREATE TABLE IF NOT EXISTS purchase (
+CREATE TABLE IF NOT EXISTS purchase(
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     buyer BIGINT,
     seller BIGINT,
