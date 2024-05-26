@@ -20,7 +20,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @Import(PurchaseCrudService.class)
 @ContextConfiguration(classes = TestApplication.class)
 @ActiveProfiles("test")
-//@TestPropertySource(locations = "classpath:application.properties")
  class PurchaseCrudServiceTests {
     @Autowired
     private PurchaseCrudService purchaseCrudService;

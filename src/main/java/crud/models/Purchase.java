@@ -2,13 +2,11 @@ package crud.models;
 
 import jakarta.persistence.*;
 
-//import javax.persistence.Entity;
-//import javax.persistence.Id;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
 import java.sql.Timestamp;
 
-
+/**
+ * Сущность представляющая покупку в системе.
+ */
 @Entity
 public class Purchase {
     @Id
@@ -25,9 +23,22 @@ public class Purchase {
     @Column(name = "date")
     private Timestamp date;
 
+    /**
+     * Конструктор по умолчанию для JPA.
+     */
     public Purchase() {
     }
 
+    /**
+     * Конструктор создания покупки.
+     *
+     * @param id Идентификатор покупки
+     * @param buyer Идентификатор покупателя
+     * @param seller Идентификатор продавца
+     * @param type Идентификатор типа товара
+     * @param name Название товара
+     * @param date Дата покупки
+     */
     public Purchase(Long id, Long buyer, Long seller, Long type,  String name, Timestamp date) {
         this.id = id;
         this.buyer = buyer;

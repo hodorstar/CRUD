@@ -9,13 +9,25 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.Scanner;
 
+/**
+ * Главный класс Spring Boot приложения.
+ */
 @SpringBootApplication
 public class MainApp {
 
+    /**
+     * Основной метод, запускающий Spring Boot приложение.
+     * @param args аргументы командной строки.
+     */
     public static void main(String[] args) {
         SpringApplication.run(MainApp.class, args);
     }
 
+    /**
+     * Метод конфигурирует bean CommandLineRunner для интерактивной работы с пользователем через консоль.
+     * @param service сервис для управления данными покупок.
+     * @return возвращает CommandLineRunner с конфигурацией интерфейса командной строки.
+     */
     @Bean
     public CommandLineRunner demo(PurchaseCrudService service) {
         return args -> {

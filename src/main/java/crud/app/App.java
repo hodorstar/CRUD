@@ -7,22 +7,34 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.Scanner;
 
+
+/**
+ * Класс представляет собой консольное приложение для управления записями покупок.
+ */
 public class App {
     private Scanner scanner;
     private PurchaseCrudService service;
 
+    /**
+     * Конструктор, создающий экземпляр класса App.
+     *
+     @param scanner Сканнер для чтения ввода пользователя.
+     @param service Сервис для выполнения операций CRUD над объектами Purchase.
+     */
     public App(Scanner scanner, PurchaseCrudService service) {
         this.scanner = scanner;
         this.service = service;
     }
 
+    /**
+     * Запускает основной цикл пользовательского интерфейса, позволяющий выбирать CRUD операции.
+     */
     public void showMenu() {
         boolean running = true;
         while (running) {
             System.out.println("Choose CRUD operations: [1] Create, [2] Read, [3] Update, [4] Delete, [5] Exit");
             if (scanner.hasNextInt()) {
                 int choice = scanner.nextInt();
-
                 switch (choice) {
                     case 1:
                         create();
@@ -50,6 +62,9 @@ public class App {
 
     }
 
+    /**
+     * Обрабатывает создание новой записи покупки.
+     */
     private void create() {
         Long buyerId = safeNextLong("Enter buyer id:");
         Long sellerId = safeNextLong("Enter seller id:");
@@ -64,6 +79,10 @@ public class App {
 
     }
 
+
+    /**
+     * Обрабатывает чтение данных о покупках.
+     */
     private void read() {
         Long chose = safeNextLong("Choose operations:\n[1] Select all purchases \n[2] Select purchase by id");
         if (chose == 1) {
@@ -84,6 +103,9 @@ public class App {
         }
     }
 
+    /**
+     * Обрабатывает обновление данных о покупке.
+     */
     private void update() {
         Long id = safeNextLong("Enter purchase id to update:");
 
@@ -99,6 +121,9 @@ public class App {
         }
     }
 
+    /**
+     * Обрабатывает удаление данных о покупке.
+     */
     private void delete() {
         Long id = safeNextLong("Enter purchase id to delete:");
         Purchase purchase = service.getPurchaseById(id);
@@ -110,6 +135,12 @@ public class App {
         }
     }
 
+    /**
+     * Считывает целое число от пользователя, проверяя его на корректность.
+     *
+     @param text Текст, который выводится перед вводом.
+     @return Возвращает валидное целое число.
+     */
     private Long safeNextLong(String text) {
         System.out.println(text);
         Long inputNumber = null;
@@ -128,6 +159,13 @@ public class App {
         return inputNumber;
     }
 
+
+    /**
+     * Считывает дату от пользователя, проверяя ее на соответствие формату.
+     *
+     @param text Текст, который выводится перед вводом.
+     @return Возвращает объект Timestamp, представляющий дату.
+     */
     private Timestamp safeNextDate(String text) {
         System.out.println(text);
         Timestamp date = null;
